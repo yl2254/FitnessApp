@@ -11,9 +11,14 @@ const {
 
 import React, {Component} from 'react';
 import { StyleSheet, View, AppRegistry, Navigator, ListView} from 'react-native';
+import {Container} from 'native-base';
 
 import TaskList from './TaskList';
 import TaskForm from './TaskForm';
+import HeaderIconText from './Header';
+import MyDatePicker from './DatePicker';
+import NewWorkout from './NewWorkout';
+
 
 class FitnessBuddy extends Component {
     constructor(props, context) {
@@ -21,10 +26,16 @@ class FitnessBuddy extends Component {
         this.state = {
             todos: [
                 {
-                    task: 'Learn React Native',
+                    task: 'Time',
                 },
                 {
-                    task: 'Learn Redux',
+                    task: 'Pro Club',
+                },
+                {
+                    task: 'running',
+                },
+                {
+                    task: 'buddy preference',
                 },
             ],
         };
@@ -61,18 +72,25 @@ class FitnessBuddy extends Component {
         switch (route.name) {
         case 'taskform':
             return (
+                <Container>
+                <HeaderIconText/>               
                 <TaskForm
                     onAdd={this.onAdd.bind(this)}
                     onCancel={this.onCancel.bind(this)}
                 />
+                </Container>
             );
         default:
             return (
-                <TaskList
+                 <Container>
+                <HeaderIconText/>
+                <MyDatePicker  />  
+                <NewWorkout
                     onAddStarted={this.onAddStarted.bind(this)}
                     onDone={this.onDone.bind(this)}
                     todos={this.state.todos}
-                />
+                />           
+                </Container>
             );
         }
     }
