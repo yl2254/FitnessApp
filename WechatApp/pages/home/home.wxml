@@ -1,2 +1,22 @@
-<!--home.wxml-->
-<text>home.wxml</text>
+
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+<view class="container">
+   <input placeholder="请输入快递单号" bindinput="input" />
+   <button type="primary" bindtap="btnClick"> 查询 </button> 
+</view>
+<view class="expressinfo" wx:for="{{expressInfo.data}}">
+    <ul>
+      <li>{{item.context}}</li>
+      <li>{{item.time}}</li> 
+    </ul> 
+</view> 
+
