@@ -3,15 +3,20 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
+    motto: 'Enter info page',
     userInfo: {}
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../info/info'
     })
   },
+  // bindInfoPage: function () {
+  //   wx.navigateTo({
+  //     url: '../info/info'
+  //   })
+  // },
   onLoad: function () {
     console.log('onLoad')
     var that = this
